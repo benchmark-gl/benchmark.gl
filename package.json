@@ -1,0 +1,36 @@
+{
+  "name": "benchmark.gl",
+  "version": "0.0.0",
+  "description": "simple webgl performance scaling",
+  "keywords": [
+    "webgl",
+    "benchmark"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socialtables/benchmark.gl.git"
+  },
+  "author": "",
+  "contributors": [
+    "Joseph Van Drunen <josephvandrunen@gmail.com>",
+    "Eli Fitch"
+  ],
+  "files": [
+    "LICENSE",
+    "Readme.md",
+    "dist.json",
+    "index.js"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/socialtables/benchmark.gl/issues"
+  },
+  "homepage": "https://github.com/socialtables/benchmark.gl#readme",
+  "dependencies": {
+    "useragent": "^2.1.9"
+  }
+}
