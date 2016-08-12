@@ -1,33 +1,33 @@
-var data = JSON.parse(require("./dist.json"));
-var useragent = require("useragent");
-
-//TODO: make things look pretty
-exports.benchmark = function(weights){
-
-    var webglVersion = window.location.search.indexOf("v=2") > 0 ? 2 : 1;
+var data = require("./dist.json");
+var platform = require("platform");
 
 
-    var renderer;
-    var canvas = $("<canvas />", { width: "1", height: "1" }).appendTo("body");
-    var gl;
-    var possibleNames = (webglVersion === 2) ? ["webgl2", "experimental-webgl2"] : ["webgl", "experimental-webgl"];
-    var contextName = _.find(possibleNames, function (name) {
-        gl = canvas[0].getContext(name, { stencil: true });
-        return !!gl;
-    });
-    canvas.remove();
-
+exports.calibrate = function(){
+    var canvas = document.createElement("canvas");
+    var gl = (
+        canvas.getContext("webgl") ||
+        canvas.getContext("webgl-experimental") ||
+        canvas.getContext("experimental-webgl")
+    );
 	if (!gl) {
-        // The browser supports WebGL, but initialization failed
         return 0;
 	}
 
+    var renderer;
 	var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
 	if (dbgRenderInfo != null) {
 		renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
 	}
+    canvas.remove();
+
 	console.log("renderer", renderer);
-	console.log("data", data);
+    console.log("data", data);
+    console.log("platform", platform);
 
 
+    Object.keys(data).forEach(function(val){
+        for (var i=0, iLen=data[val].length; i<iLen; i++) {
+            //find your values
+        }
+    });
 }
